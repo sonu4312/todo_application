@@ -164,7 +164,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
                   </div>
 
                   <div className="flex justify-end space-x-3 mt-6">
-                    <Button type="button" variant="reset" onClick={handleReset}>
+                    <Button type="button" variant="reset" onClick={handleReset} className="text-black">
                       Reset
                     </Button>
                     <Button type="submit">

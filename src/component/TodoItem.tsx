@@ -22,7 +22,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
 
   return (
     <div
-      className={`bg-white  rounded-lg shadow-md p-4 animate-fade-in ${
+      className={`bg-white  rounded-bl-4xl rounded-br-3xl rounded-tr-3xl shadow-md shad p-4 animate-fade-in ${
         isCompletionToday ? "border-l-10 border-red-500" : ""
       }`}
     >
@@ -65,7 +65,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
             variant="primary"
             size="sm"
             onClick={() => onEdit(todo)}
-            className="p-2"
+            className="p-2 rounded-full"
           >
             <Pencil className="h-4 w-4" />
           </Button>
@@ -73,7 +73,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
             variant="danger"
             size="sm"
             onClick={() => onDelete(todo.id)}
-            className="p-2"
+            className="p-2 rounded-full"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

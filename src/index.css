@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --color-primary: #51a2ff;
+    --color-primary: #252729;
     --color-reset: oklch(0.704 0.04 256.788);
   }
 }
