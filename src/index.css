@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary: #51a2ff;
+    --color-reset: oklch(0.704 0.04 256.788);
+  }
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-reset: var(--color-reset);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
