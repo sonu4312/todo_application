@@ -11,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Button from "./Button";
 import { format } from "date-fns";
+import { X } from "lucide-react";
 
 interface CustomModalProps {
   isOpen: boolean;
@@ -82,7 +83,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
 
   return (
     <Transition show={isOpen} as={React.Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={onClose}>
+      <Dialog as="div" className="relative z-50" onClose={() => {}}>
         <TransitionChild
           as={React.Fragment}
           enter="ease-out duration-300"
@@ -107,6 +108,13 @@ const CustomModal: React.FC<CustomModalProps> = ({
               leaveTo="opacity-0 scale-95"
             >
               <DialogPanel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
+                >
+                  <X className="w-5 h-5" />
+                </button>
                 <DialogTitle className="text-lg font-medium leading-6 text-primary">
                   {mode === "add" ? "Add New Todo" : "Edit Todo"}
                 </DialogTitle>
@@ -121,7 +129,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
                     <input
                       type="text"
                       {...register("title")}
-                      className="w-full rounded-md border border-gray-300  px-3 py-2 text-gray-900  placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                      className="w-full rounded-md border border-gray-300  px-3 py-2 text-gray-900  placeholder-gray-500  focus:outline-none focus:ring-2 focus:ring-black "
                     />
                     {errors.title && (
                       <p className="mt-1 text-sm text-red-600">
@@ -137,7 +145,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
                     <textarea
                       {...register("description")}
                       rows={3}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900  placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     {errors.description && (
                       <p className="mt-1 text-sm text-red-600">
@@ -154,7 +162,7 @@ const CustomModal: React.FC<CustomModalProps> = ({
                       type="date"
                       {...register("completionDate")}
                       min={minDate}
-                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900  focus:outline-none focus:ring-2 focus:ring-blue-500 "
+                      className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900  focus:outline-none focus:ring-2 focus:ring-black"
                     />
                     {errors.completionDate && (
                       <p className="mt-1 text-sm text-red-600">
@@ -164,7 +172,12 @@ const CustomModal: React.FC<CustomModalProps> = ({
                   </div>
 
                   <div className="flex justify-end space-x-3 mt-6">
-                    <Button type="button" variant="reset" onClick={handleReset} className="text-black">
+                    <Button
+                      type="button"
+                      variant="reset"
+                      onClick={handleReset}
+                      className="text-black"
+                    >
                       Reset
                     </Button>
                     <Button type="submit">
